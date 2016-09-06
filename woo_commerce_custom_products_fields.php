@@ -1,12 +1,11 @@
 <?php
 /*
 Plugin Name: woo-commerce custom products fields
-Plugin URI:
+Plugin URI :
 Description: A plugin to add Custom product field for WooCommerce
-Version: 1.0
-Author: Joydip Nath
-Author URI: http://joydipme.com
-
+Version    : 1.0
+Author     : Joydip Nath
+License    : GPL2
 */
 if(!class_exists('woo_commerce_custom_products_fields'))
 { 
@@ -47,44 +46,7 @@ if(!class_exists('woo_commerce_custom_products_fields'))
 		add_action('woocommerce_add_order_item_meta','wdm_add_values_to_order_item_meta',1,2);
         } // END public function __construct
     
-        /**
-         * Activate the plugin
-         */
-        public static function activate()
-        {
-		global $wpdb;
-		global $jal_db_version; 
-		$table_name = $wpdb->prefix . 'product_data'; 	
-		$charset_collate = $wpdb->get_charset_collate();
-		$sql = "CREATE TABLE $table_name (
-			id mediumint(9) NOT NULL AUTO_INCREMENT,
-			time datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
-		        j_text_A int NULL,
-			j_text_B text NULL,
-			j_text_C text NULL,
-			j_text_D text NULL,
-			j_text_E text NULL,
-			UNIQUE KEY id (id)
-		) $charset_collate;";
-
-		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
-		dbDelta( $sql );
-
-		add_option( 'jal_db_version', $jal_db_version );
-        } // END public static function activate
-    
-        /**
-         * Deactivate the plugin
-         */     
-        public static function deactivate()
-        {
-		global $wpdb;
-		global $jal_db_version; 
-		$table_name = $wpdb->prefix . 'product_data'; 
-                $sql = " DROP TABLE $table_name ";
-		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
-		dbDelta( $sql );
-        } // END public static function deactivate
+        
 
 	/**
 	 * add a menu
@@ -107,8 +69,6 @@ if(!class_exists('woo_commerce_custom_products_fields'))
 	    // Render the settings template
 	    include(sprintf("%s/templates/settings.php", dirname(__FILE__)));
 	} // END public function plugin_settings_page()
-
-
 
 
 		public function admin_init()
@@ -207,10 +167,6 @@ if(!class_exists('woo_commerce_custom_products_fields'))
 
 if(class_exists('woo_commerce_custom_products_fields'))
 {
-    // Installation and uninstallation hooks
-    register_activation_hook(__FILE__, array('woo_commerce_custom_products_fields', 'activate'));
-    register_deactivation_hook(__FILE__, array('woo_commerce_custom_products_fields', 'deactivate'));
-
     // instantiate the plugin class
     $woo_commerce_custom_products_fields = new woo_commerce_custom_products_fields();
 }
