@@ -79,25 +79,22 @@ function woo_add_custom_general_fields() {
 					woocommerce_wp_checkbox( 
 					array( 
 						'id'            => '_check_single_product_page', 
-						'wrapper_class' => 'show_if_simple', 
+						'wrapper_class' => 'checkbox_class', 
 						'label'         => __(' ', 'woocommerce' ), 
 						'description'   => __( 'Check to show additional data to single product page', 'woocommerce' ) 
 						)
 					);
 					// Checkbox
 					woocommerce_wp_checkbox( 
+						//if(get_post_meta( $post->ID, '_check_save_n_mail', true )){ $true = "true";}
 					array( 
 						'id'            => '_check_save_n_mail', 
-						'wrapper_class' => 'show_if_simple', 
+						'wrapper_class' => 'checkbox_class', 
 						'label'         => __(' ', 'woocommerce' ), 
-						'description'   => __( 'Check to save and email the additional data when checked out', 'woocommerce' ) 
+						'description'   => __( 'Check to save and email the additional data when checked out', 'woocommerce' ),
 						)
-					);
-		  
-		  
-		  
+					);  
 		  echo '</div>';
-			
 		}
 		
 		// Function to save the field data
@@ -126,12 +123,13 @@ function woo_add_custom_general_fields() {
 			if( !empty( $woocommerce_text_D ) )				
 				update_post_meta( $post_id, 'text_E', esc_html( $woocommerce_text_E ) );				
 				
-			// Checkbox1
-			$woocommerce_check_single_product_page = isset( $_POST['_check_single_product_page'] ) ? 'showinsingle' : 'hideinsingle';
+			// Checkbox1 showinsingle hideinsingle
+			$woocommerce_check_single_product_page = isset( $_POST['_check_single_product_page'] ) ? 'yes' : 'no';
 			update_post_meta( $post_id, '_check_single_product_page', $woocommerce_check_single_product_page );
-			// Checkbox2
-			$woocommerce_check_save_n_mail = isset( $_POST['_check_save_n_mail'] ) ? 'savenmail' : 'notsavenmail';
+			// Checkbox2 savenmail
+			$woocommerce_check_save_n_mail = isset( $_POST['_check_save_n_mail'] ) ? 'yes' : 'no';
 			update_post_meta( $post_id, '_check_save_n_mail', $woocommerce_check_save_n_mail );
+
 						
 		}
 
@@ -146,7 +144,7 @@ function add_custom_field() {
     //echo $post->ID;
         $text_check_single_product_page  = get_post_meta( $post->ID, '_check_single_product_page', true );
         $text_check_single_product_page = trim($text_check_single_product_page);
-     	if ($text_check_single_product_page == 'showinsingle'){
+     	if ($text_check_single_product_page == 'yes'){
 
 		$text_A1  = get_post_meta( $post->ID, 'text_A', true );
 		$text_B1  = get_post_meta( $post->ID, 'text_B', true );
@@ -289,7 +287,7 @@ function wdm_add_values_to_order_item_meta($item_id, $values)
 		}
         $text_check_savenmail  = get_post_meta( $post_ids, '_check_save_n_mail', true );
         $text_check_savenmail = trim($text_check_savenmail);
-     if ($text_check_savenmail == 'savenmail'){	 
+     if ($text_check_savenmail == 'yes'){	 
 		$text_A1  = get_post_meta( $post_ids, 'text_A', true );
 		$text_B1  = get_post_meta( $post_ids, 'text_B', true );
 		$text_C1  = get_post_meta( $post_ids, 'text_C', true );
