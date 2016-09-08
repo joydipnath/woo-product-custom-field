@@ -18,7 +18,7 @@ if(!class_exists('woo_commerce_custom_products_fields'))
         {
             
 		require_once(sprintf("%s/templates/woocommerce-product-custom-field.php", dirname(__FILE__)));
-		require_once(sprintf("%s/css/table_custom_css.css", dirname(__FILE__)));
+		//require_once(sprintf("%s/css/table_custom_css.css", dirname(__FILE__)));
 			// register actions
                 add_action('admin_init', array(&$this, 'admin_init'));
         	add_action('admin_menu', array(&$this, 'add_menu'));
@@ -172,4 +172,3 @@ if(class_exists('woo_commerce_custom_products_fields'))
 }
 
 ?>
-
