@@ -2,6 +2,18 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 //include_once(sprintf("%s/css/table_custom_css.css", dirname(__FILE__)));
 
+if (!function_exists('write_log')) {
+    function write_log ( $log )  {
+        if ( true === WP_DEBUG ) {
+            if ( is_array( $log ) || is_object( $log ) ) {
+                error_log( print_r( $log, true ) );
+            } else {
+                error_log( $log );
+            }
+        }
+    }
+}
+
 add_action( 'woocommerce_product_options_general_product_data', 'woo_add_custom_general_fields' );
 /*
 * Save Fields
@@ -28,12 +40,7 @@ function woo_add_custom_general_fields() {
 							'id'                => 'text_A', 
 							'label'             => __( $text_A , 'woocommerce' ), 
 							'placeholder'       => '', 
-							'description'       => __( '', 'woocommerce' ),
-							'type'              => 'number', 
-							'custom_attributes' => array(
-									'step' 	=> 'any',
-									'min'	=> '0'
-								) 
+							'description'       => __( '', 'woocommerce' )
 						)
 					);
 					woocommerce_wp_text_input( 
@@ -41,12 +48,8 @@ function woo_add_custom_general_fields() {
 							'id'                => 'text_B', 
 							'label'             => __( $text_B, 'woocommerce' ), 
 							'placeholder'       => '', 
-							'description'       => __( '', 'woocommerce' ),
-							'type'              => 'number', 
-							'custom_attributes' => array(
-									'step' 	=> 'any',
-									'min'	=> '0'
-								) 
+							'description'       => __( '', 'woocommerce' )
+
 						)
 					);
 					// Textarea
@@ -125,10 +128,10 @@ function woo_add_custom_general_fields() {
 				
 			// Checkbox1 showinsingle hideinsingle
 			$woocommerce_check_single_product_page = isset( $_POST['_check_single_product_page'] ) ? 'yes' : 'no';
-			update_post_meta( $post_id, '_check_single_product_page', $woocommerce_check_single_product_page );
+				update_post_meta( $post_id, '_check_single_product_page', $woocommerce_check_single_product_page );
 			// Checkbox2 savenmail
 			$woocommerce_check_save_n_mail = isset( $_POST['_check_save_n_mail'] ) ? 'yes' : 'no';
-			update_post_meta( $post_id, '_check_save_n_mail', $woocommerce_check_save_n_mail );
+				update_post_meta( $post_id, '_check_save_n_mail', $woocommerce_check_save_n_mail );
 
 						
 		}
@@ -139,9 +142,7 @@ function woo_add_custom_general_fields() {
 */
 add_action( 'woocommerce_before_add_to_cart_button', 'add_custom_field', 0 );
 function add_custom_field() {
-    global $post,$product;
-    // $product_id = $_POST['id'];
-    //echo $post->ID;
+    global $post;
         $text_check_single_product_page  = get_post_meta( $post->ID, '_check_single_product_page', true );
         $text_check_single_product_page = trim($text_check_single_product_page);
      	if ($text_check_single_product_page == 'yes'){
@@ -186,7 +187,7 @@ function add_custom_field() {
 		  
 		echo "</table>";
 		echo "<br>";
-
+         write_log('Something went wrong near line number: '.__LINE__ );
       	}
 return true;
 }
@@ -240,6 +241,7 @@ function some_custom_checkout_field( $checkout ) {
 		  
 		echo "</table>";
 		echo "<br>";
+	write_log('Something went wrong near line number: '.__LINE__ );
 }
 /*
 * save custom data in woo-commerce orders for admin view
@@ -272,7 +274,7 @@ function some_custom_checkout_field_update_order_meta( $order_id, $posted ) {
 			update_post_meta( $order_id, get_option('text_E'), get_post_meta( $post_ids, 'text_E', true ) ); 
 	
 		}
-   
+   write_log('Something went wrong near line number: '.__LINE__ );
 }
 /*
 * send custom data to user through email after check out
@@ -311,6 +313,7 @@ function wdm_add_values_to_order_item_meta($item_id, $values)
 		} 
 	
      } 
-        
+   write_log('Something went wrong near line number: '.__LINE__ );
   }
+
 ?>
