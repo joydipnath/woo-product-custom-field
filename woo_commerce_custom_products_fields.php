@@ -1,15 +1,15 @@
 <?php
 /*
-Plugin Name: woo-commerce custom products fields
+Plugin Name: custom products fields woo
 Plugin URI : https://github.com/joydipnath/woocommerce-product-custom-field
 Description: A plugin to add Custom product field for WooCommerce
 Version    : 1.0
 Author     : Joydip Nath
 License    : GPL2
 */
-if(!class_exists('woo_commerce_custom_products_fields'))
+if(!class_exists('woo_custom_products_fields'))
 { 
-    class woo_commerce_custom_products_fields
+    class woo_custom_products_fields
     {
         /**
          * Construct the plugin object
@@ -17,7 +17,7 @@ if(!class_exists('woo_commerce_custom_products_fields'))
         public function __construct()
         {
             
-		require_once(sprintf("%s/templates/woocommerce-product-custom-field.php", dirname(__FILE__)));
+		require_once(sprintf("%s/templates/woo-product-custom-field.php", dirname(__FILE__)));
 		//require_once(sprintf("%s/css/table_custom_css.css", dirname(__FILE__)));
 			// register actions
                 add_action('admin_init', array(&$this, 'admin_init'));
@@ -53,7 +53,7 @@ if(!class_exists('woo_commerce_custom_products_fields'))
 	 */     
 	public function add_menu()
 	{
-	    add_options_page('Add your custom name for each tabs', 'woo_commerce_custom_products_fields', 'manage_options', 'woo_commerce_custom_products_fields', array(&$this, 'plugin_settings_page'));
+	    add_options_page('Add your custom name for each tabs', 'woo_custom_products_fields', 'manage_options', 'woo_custom_products_fields', array(&$this, 'plugin_settings_page'));
 	} // END public function add_menu()
 
 	/**
@@ -86,7 +86,7 @@ if(!class_exists('woo_commerce_custom_products_fields'))
         	    'joy_wp_plugin_template-section', 
         	    'Add your custom name for each tabs', 
         	    array(&$this, 'settings_section_wp_plugin_template'), 
-        	    'woo_commerce_custom_products_fields'
+        	    'woo_custom_products_fields'
         	);
         	
         	// add your setting's fields
@@ -94,7 +94,7 @@ if(!class_exists('woo_commerce_custom_products_fields'))
                 'wp_plugin_template-setting_a', 
                 'Text A', 
                 array(&$this, 'settings_field_input_text'), 
-                'woo_commerce_custom_products_fields', 
+                'woo_custom_products_fields', 
                 'joy_wp_plugin_template-section',
                 array(
                     'field' => 'text_A'
@@ -104,7 +104,7 @@ if(!class_exists('woo_commerce_custom_products_fields'))
                 'wp_plugin_template-setting_b', 
                 'Text B', 
                 array(&$this, 'settings_field_input_text'), 
-                'woo_commerce_custom_products_fields', 
+                'woo_custom_products_fields', 
                 'joy_wp_plugin_template-section',
                 array(
                     'field' => 'text_B'
@@ -114,7 +114,7 @@ if(!class_exists('woo_commerce_custom_products_fields'))
                 'wp_plugin_template-product_ID', 
                 'Text c', 
                 array(&$this, 'settings_field_input_text'), 
-                'woo_commerce_custom_products_fields', 
+                'woo_custom_products_fields', 
                 'joy_wp_plugin_template-section',
                 array(
                     'field' => 'text_C'
@@ -124,7 +124,7 @@ if(!class_exists('woo_commerce_custom_products_fields'))
                 'wp_plugin_template-pallet_ID', 
                 'Text D', 
                 array(&$this, 'settings_field_input_text'), 
-                'woo_commerce_custom_products_fields', 
+                'woo_custom_products_fields', 
                 'joy_wp_plugin_template-section',
                 array(
                     'field' => 'text_D'
@@ -134,7 +134,7 @@ if(!class_exists('woo_commerce_custom_products_fields'))
                 'wp_plugin_template-discount', 
                 'Text E', 
                 array(&$this, 'settings_field_input_text'), 
-                'woo_commerce_custom_products_fields', 
+                'woo_custom_products_fields', 
                 'joy_wp_plugin_template-section',
                 array(
                     'field' => 'text_E'
@@ -168,7 +168,7 @@ if(!class_exists('woo_commerce_custom_products_fields'))
 if(class_exists('woo_commerce_custom_products_fields'))
 {
     // instantiate the plugin class
-    $woo_commerce_custom_products_fields = new woo_commerce_custom_products_fields();
+    $woo_custom_products_fields = new woo_custom_products_fields();
 }
 
 ?>
