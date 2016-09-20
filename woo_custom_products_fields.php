@@ -165,7 +165,7 @@ if(!class_exists('woo_custom_products_fields'))
     } // END class WP_Plugin_Template
 } // END if(!class_exists('WP_Plugin_Template'))
 
-if(class_exists('woo_commerce_custom_products_fields'))
+if(class_exists('woo_custom_products_fields'))
 {
     // instantiate the plugin class
     $woo_custom_products_fields = new woo_custom_products_fields();
