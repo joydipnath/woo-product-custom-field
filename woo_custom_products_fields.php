@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: custom products fields woo
-Plugin URI : https://github.com/joydipnath/woocommerce-product-custom-field
+Plugin URI : https://github.com/joydipnath/woo-product-custom-field
 Description: A plugin to add Custom product field for WooCommerce
 Version    : 1.0
 Author     : Joydip Nath
