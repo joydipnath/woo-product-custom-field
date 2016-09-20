@@ -1,4 +1,4 @@
-# woocommerce-product-custom-field
+# woo-product-custom-field
 Tags: woocommerce, custom-product field
 Tested on wordpress   : version 4.1
 Tested On WooCommerce : Version 2.6.4
@@ -14,13 +14,13 @@ product. This product meta-data can be carried to single product page to checkou
 **This plugin requires WooCommerce 4.1 .**
 
 Features :
-> Add custom fields to single product template.
-> The name of the fields are completely customizable.
-> User is flexible to choose whether to display them in single product page or not.
-> User is flexible to choose whether to save the custom field data for admin purpose
-  at checking out.
-> User is flexible to choose whether to mail the custom field data to customer at
-  checking out.
-> It does not create any additional database/tables. So, it does not consume much
-  space.
+ ** Add custom fields to single product template.
+ ** The name of the fields are completely customizable.
+ ** User is flexible to choose whether to display them in single product page or not.
+ ** User is flexible to choose whether to save the custom field data for admin purpose
+    at checking out.
+ ** User is flexible to choose whether to mail the custom field data to customer at
+    checking out.
+ ** It does not create any additional database/tables. So, it does not consume much
+    space.
 
