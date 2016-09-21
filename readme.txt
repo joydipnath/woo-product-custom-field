@@ -4,9 +4,9 @@ Contributors: Joydip Nath
 
 Tags: woocommerce, custom-product field 
 
-Requires at least: wordpress version 4.1 Tested On WooCommerce Version 2.6.4
+Requires at least: wordpress version 4.6 Tested On WooCommerce Version 2.6.4
 
-Tested up to: WooCommerce Version 2.6.4 and wordpress version 4.1
+Tested up to: WooCommerce Version 2.6.4 and wordpress version 4.6.1
 
 Stable tag: 1.0
 
