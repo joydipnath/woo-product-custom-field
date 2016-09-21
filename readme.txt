@@ -21,7 +21,7 @@ This plugin extends WooCommerce by allowing some additional custom product meta-
 == Installation ==
 
 Download the "Custom Products fields woo" plugin . Extract it. Then copy and paste it to your 
-wp-content/plugins/ directory. Then got to your wordpress admin account and activate it.
+wp-content/plugins/ directory. Then go to your wordpress admin account and activate it.
 
 == Screenshots ==
 
