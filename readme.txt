@@ -2,6 +2,8 @@
 
 Contributors: Joydip Nath
 
+Donate link: https://www.paypal.me/JoydipNath
+
 Tags: woocommerce, custom-product field 
 
 Requires at least: wordpress version 4.6 Tested On WooCommerce Version 2.6.4
