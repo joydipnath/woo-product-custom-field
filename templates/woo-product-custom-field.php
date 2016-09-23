@@ -145,7 +145,7 @@ function add_custom_field() {
     global $post;
         $text_check_single_product_page  = get_post_meta( $post->ID, '_check_single_product_page', true );
         $text_check_single_product_page = trim($text_check_single_product_page);
-     	if ($text_check_single_product_page == 'yes'){
+     	if ($text_check_single_product_page == 'yes') {
 
 		$text_A1  = get_post_meta( $post->ID, 'text_A', true );
 		$text_B1  = get_post_meta( $post->ID, 'text_B', true );
@@ -187,8 +187,10 @@ function add_custom_field() {
 		  
 		echo "</table>";
 		echo "<br>";
-         write_log('Something went wrong near line number: '.__LINE__ );
       	}
+      	else{
+     	write_log('Something went wrong near line number: '.__LINE__ );
+     	}
 return true;
 }
 /**
@@ -241,7 +243,7 @@ function some_custom_checkout_field( $checkout ) {
 		  
 		echo "</table>";
 		echo "<br>";
-	write_log('Something went wrong near line number: '.__LINE__ );
+	
 }
 /*
 * save custom data in woo-commerce orders for admin view
@@ -274,7 +276,7 @@ function some_custom_checkout_field_update_order_meta( $order_id, $posted ) {
 			update_post_meta( $order_id, get_option('text_E'), get_post_meta( $post_ids, 'text_E', true ) ); 
 	
 		}
-   write_log('Something went wrong near line number: '.__LINE__ );
+
 }
 /*
 * send custom data to user through email after check out
@@ -313,7 +315,10 @@ function wdm_add_values_to_order_item_meta($item_id, $values)
 		} 
 	
      } 
-   write_log('Something went wrong near line number: '.__LINE__ );
+     else{
+     	write_log('Something went wrong near line number: '.__LINE__ );
+     	}
+  	
   }
 
 ?>
